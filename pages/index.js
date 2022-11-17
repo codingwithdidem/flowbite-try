@@ -8,11 +8,14 @@ import {
   TextInput,
   Card,
   Checkbox,
+  Toast,
 } from "flowbite-react";
+import { HiFire } from "react-icons/hi";
 import Footer from "../components/footer/Footer";
 
 export default function Home() {
   const [open, setOpen] = useState(false);
+  const [displayToast, setDisplayToast] = useState(false);
 
   const handleOpen = () => {
     setOpen(true);
@@ -209,6 +212,15 @@ export default function Home() {
           </div>
         </section>
 
+        <section>
+          <div className="container mx-auto px-4">
+            <video class="w-full" autoplay muted controls>
+              <source src="/videos/spiky-prod.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </section>
+
         {/* Marketing Section */}
         <section>
           <div className="max-w-5xl mx-auto py-5">
@@ -373,7 +385,12 @@ export default function Home() {
             <Tabs.Group aria-label="Default tabs" style="default">
               <Tabs.Item active={true} title="Profile">
                 <div className="flex items-center space-x-4">
-                  <Button gradientDuoTone="purpleToBlue">Purple to Blue</Button>
+                  <Button
+                    gradientDuoTone="purpleToBlue"
+                    onClick={() => setDisplayToast(true)}
+                  >
+                    Display toast
+                  </Button>
                   <Button
                     gradientDuoTone="purpleToBlue"
                     className="px-10 py-10"
@@ -394,7 +411,7 @@ export default function Home() {
               </Tabs.Item>
               <Tabs.Item title="Dashboard">Dashboard</Tabs.Item>
               <Tabs.Item title="Settings">Settings content</Tabs.Item>
-              <Tabs.Item title="Contacts">Contacts content</Tabs.Item>
+              <Tabs.Item title="haha"></Tabs.Item>
               <Tabs.Item disabled={true} title="Disabled">
                 Disabled content
               </Tabs.Item>
